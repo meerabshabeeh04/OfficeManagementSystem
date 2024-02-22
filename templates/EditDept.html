@@ -1,0 +1,43 @@
+{% include "header.html" %}
+
+<h1 class="main-head" style="text-align: center; margin: 30px; font-family: auto; font-weight: bold;">Edit Department</h1>
+{% if message %}
+  <div class="alert alert-success guide-box" role="alert" style="margin: 2%; text-align: center; font-size: 150%;">
+      Department Edited Successfully
+  </div>
+{% endif %}
+
+{% if error %}
+  <div class="alert alert-danger" role="alert" style="margin: 2%; text-align: center; font-size: 150%;">
+    Department Already Exists Please Add Another!
+  </div>
+{% endif %}
+
+<form method = "post">
+    {% csrf_token %}
+    <div class="container text-center">
+        <div class="row">
+
+          <div class="col">
+            <div class="mb-3">
+                <label for="depname" class="form-label">Department Name</label>
+                <input type="text" class="form-control" id="depname" name="depname" value="{{dep.dept_name}}" required>
+              </div>
+          </div>
+
+        </div>
+
+        <div class="row">
+
+            <div class="col">
+              <div class="mb-3">
+                  <input type="submit" class="form-control add-emp" value="Edit" style="background-color: gray; color: white;">
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+</form>
+
+{% include "footer.html" %}

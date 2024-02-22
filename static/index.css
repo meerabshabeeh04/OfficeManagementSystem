@@ -1,0 +1,26 @@
+body {
+    background: url('/static/Office.jpg') no-repeat center center fixed;
+    background-size: cover;
+}
+h1{
+    text-align: center;
+    background-color: gray;
+    opacity: 90%;
+    font-family: math;
+    color: white;
+    padding: 2%;
+}
+div.login-dialog{
+    margin-top: 5%;
+    margin-left: 30%;
+    margin-right: 30%;
+}
+div.login-heading{
+    font-weight: 700;
+    font-family: sans-serif;
+    color: black;
+}
+.marg{
+    margin-top: 12px;
+    margin-bottom: 12px;
+}

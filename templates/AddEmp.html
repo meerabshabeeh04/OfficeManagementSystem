@@ -1,0 +1,127 @@
+{% include "header.html" %}
+
+<h1 class="main-head" style="text-align: center; margin: 30px; font-family: auto; font-weight: bold;">Add a New Employee</h1>
+{% if message %}
+  <div class="alert alert-success guide-box" role="alert" style="margin: 2%; text-align: center; font-size: 150%;">
+      Employee Added Successfully
+  </div>
+{% endif %}
+
+{% if error %}
+  <div class="alert alert-danger" role="alert" style="margin: 2%; text-align: center; font-size: 150%;">
+      Please Add Another Password
+  </div>
+{% endif %}
+
+<form method="post">
+    {% csrf_token %}
+    <div class="container text-center">
+        <div class="row">
+
+          <div class="col">
+            <div class="mb-3">
+                <label for="fname" class="form-label">First Name</label>
+                <input type="text" class="form-control" id="fname" name="fname" required>
+              </div>
+          </div>
+
+          <div class="col">
+            <div class="mb-3">
+                <label for="lname" class="form-label">Last Name</label>
+                <input type="text" class="form-control" id="lname" name="lname" required>
+              </div>
+          </div>
+
+        </div>
+
+        <div class="row">
+
+            <div class="col">
+              <div class="mb-3">
+                  <label for="email" class="form-label">Email</label>
+                  <input type="text" class="form-control" id="email" name="email" required>
+                </div>
+            </div>
+  
+            <div class="col">
+              <div class="mb-3">
+                  <label for="passw" class="form-label">Password</label>
+                  <input type="password" class="form-control" id="passw" name="passw" required>
+                </div>
+            </div>
+            
+        </div>
+
+        <div class="row">
+
+            <div class="col">
+              <div class="mb-3">
+                  <label for="phone" class="form-label">Phone Number</label>
+                  <input type="number" class="form-control" id="phone" name="phone" required>
+                </div>
+            </div>
+  
+            <div class="col">
+              <div class="mb-3">
+                  <label for="addr" class="form-label">Address</label>
+                  <input type="text" class="form-control" id="addr" name="addr" required>
+                </div>
+            </div>
+            
+        </div>
+
+        <div class="row">
+
+            <div class="col">
+              <div class="mb-3">
+                  <label for="j-title" class="form-label">Job Title</label>
+                  <input type="text" class="form-control" id="j-title" name="j-title" required>
+                </div>
+            </div>
+  
+            <div class="col">
+              <div class="mb-3">
+                  <label for="sal" class="form-label">Salary</label>
+                  <input type="number" class="form-control" id="sal" name="sal" required>
+                </div>
+            </div>
+            
+        </div>
+
+        <div class="row">
+
+            <div class="col">
+              <div class="mb-3">
+                  <label for="j-date" class="form-label">Joined Date</label>
+                  <input type="date" class="form-control" id="j-date" name="j-date" required>
+                </div>
+            </div>
+  
+            <div class="col">
+              <div class="mb-3">
+                  <label for="dep" class="form-label">Department</label>
+                  <select class="form-select" id="dep" name="dep" aria-label="Default select example" required>
+                    <option value="" selected>Select Department</option>
+                    {% for department in Dep %}
+                    <option value="{{department.dept_name}}">{{department.dept_name}}</option>
+                    {% endfor %}
+                  </select>
+                </div>
+            </div>
+            
+        </div>
+
+        <div class="row">
+
+            <div class="col">
+              <div class="mb-3">
+                  <input type="submit" class="form-control add-emp" value="Add" style="background-color: gray; color: white;">
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+</form>
+
+{% include "footer.html" %}

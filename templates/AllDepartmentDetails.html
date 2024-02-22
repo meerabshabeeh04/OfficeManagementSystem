@@ -1,0 +1,42 @@
+{% include "header.html" %}
+
+<div class="position-relative">
+    <div class="position-absolute top-0 end-0">
+        <button type="button" class="btn btn-secondary btn-lg" id="side-btn"><a href="AddDept/" class="btn-link">Add a New Department</a></button>
+    </div>
+</div>
+
+{% if message %}
+  <div class="alert alert-success guide-box" role="alert" style="margin: 2%; text-align: center; font-size: 150%; margin-top: 8%">
+      Department Deleted Successfully
+  </div>
+{% endif %}
+
+<div>
+    <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Department Name</th>
+            <th scope="col">Number of Employees</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+            {% for dep in Deps %}
+            <tr>
+                <td>{{dep.dept_name}}</td>
+                <td>{{dep.no_of_employee}}</td>
+                <form method = "post">
+                  {% csrf_token %}
+                  <input type=text name="depname" value="{{dep.dept_name}}" style="display: none;">
+                  <td><input type="submit" value="Delete" name="method" style="border-radius: 10px; border: none; background-color: gray; color: white; padding-top: 2px; padding-bottom: 2px; padding-left: 15px; padding-right: 15px;"></td>
+                </form>
+                <td><a href="{% url 'EditDept' dep.dept_name %}" style="border-radius: 10px; border: none; background-color: gray; color: white; padding-top: 2px; padding-bottom: 2px; padding-left: 15px; padding-right: 15px; text-decoration: none;">Edit</a></td>
+              </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% include "footer.html" %}

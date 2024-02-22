@@ -1,0 +1,58 @@
+{% include "header.html" %}
+
+<div class="position-relative">
+    <div class="position-absolute top-0 end-0">
+        <button type="button" class="btn btn-secondary btn-lg" id="side-btn"><a href="AddEmp/" class="btn-link">Add a New Employee</a></button>
+    </div>
+</div>
+
+{% if message %}
+  <div class="alert alert-success guide-box" role="alert" style="margin: 2%; text-align: center; font-size: 150%; margin-top: 8%">
+      Employee Deleted Successfully
+  </div>
+{% endif %}
+
+<div>
+    <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">First Name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Password</th>
+            <th scope="col">Phone Number</th>
+            <th scope="col">Address</th>
+            <th scope="col">Job</th>
+            <th scope="col">Salary</th>
+            <th scope="col">Joined Date</th>
+            <th scope="col">Department</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+            {% for employee in Employee_Details %}
+            <tr>
+                <td>{{employee.firstname}}</td>
+                <td>{{employee.lastname}}</td>
+                <td>{{employee.emaill}}</td>
+                <td>{{employee.passwordd}}</td>
+                <td>{{employee.phone}}</td>
+                <td>{{employee.address}}</td>
+                <td>{{employee.job_title}}</td>
+                <td>{{employee.salary}}</td>
+                <td>{{employee.joined_date}}</td>
+                <td>{{employee.dept}}</td>
+                <form method = "post">
+                  {% csrf_token %}
+                  <input type=text name="pw" value="{{employee.passwordd}}" style="display: none;">
+                  <td><input type="submit" value="Delete" name="method" style="border-radius: 10px; border: none; background-color: gray; color: white; padding-top: 2px; padding-bottom: 2px; padding-left: 15px; padding-right: 15px;"></td>
+                </form>
+                <td><a href="{% url 'EditEmp' employee.passwordd %}" style="border-radius: 10px; border: none; background-color: gray; color: white; padding-top: 2px; padding-bottom: 2px; padding-left: 15px; padding-right: 15px; text-decoration: none;">Edit</a></td>
+              </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% include "footer.html" %}

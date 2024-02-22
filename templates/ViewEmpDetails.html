@@ -1,0 +1,61 @@
+{% include "header.html" %}
+
+<h1 class="main-head" style="text-align: center; margin: 30px; font-family: auto; font-weight: bold;">Employee Details</h1>
+
+<div style="margin-left: 10%; margin-right: 10%;">
+    <table class="table table-striped">
+        <tbody>
+            <tr>
+                <th>First Name</th>
+                <td>{{emp.firstname}}</td>
+            </tr>
+
+            <tr>
+                <th>Last Name</th>
+                <td>{{emp.lastname}}</td>
+            </tr>
+
+            <tr>
+                <th>Email</th>
+                <td>{{emp.emaill}}</td>
+            </tr>
+
+            <tr>
+                <th>Password</th>
+                <td>{{emp.passwordd}}</td>
+            </tr>
+
+            <tr>
+                <th>Phone</th>
+                <td>{{emp.phone}}</td>
+            </tr>
+
+            <tr>
+                <th>Address</th>
+                <td>{{emp.address}}</td>
+            </tr>
+
+            <tr>
+                <th>Job Title</th>
+                <td>{{emp.job_title}}</td>
+            </tr>
+
+            <tr>
+                <th>Salary</th>
+                <td>{{emp.salary}}</td>
+            </tr>
+
+            <tr>
+                <th>Joined Date</th>
+                <td>{{emp.joined_date}}</td>
+            </tr>
+
+            <tr>
+                <th>Department</th>
+                <td>{{emp.dept}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+{% include "footer.html" %}
